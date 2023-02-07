@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2 tabla">
+          <div class="card-body text-center">
+              <div style="margin-top: 20px">
+                  <span style="font-size: 30px">Usuarios</span>
+                  <button class="btn btn-success float-end" routerLink="">Atras</button>
+                  <button class="btn btn-success float-end" routerLink="/crearusuario">Nuevo</button>
+              </div>
+              <table *ngIf="listUsuario.length > 0"  class="table" style="margin-bottom: 15px; margin-top: 20px">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Rol</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let usuarios of listUsuario">
+                      <th scope="row">1</th>
+                      <td>{{usuarios.nombre}}</td>
+                      <td>{{usuarios.email}}</td>
+                      <td>{{usuarios.rol}}</td>
+                      <td>
+                        <button (click)="eliminarUsuario(usuarios._id)"  class="btn btn-success float-end">Eliminar</button>
+                      </td>
+                      <td>
+                        <button [routerLink]="['/crearusuario', usuarios._id]"
+                        class="btn btn-success float-end">Editar
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h5 style="text-align: start; margin-top: 10px" *ngIf="listUsuario.length == 0">No existen usuarios registrados :(</h5>
+          </div>
+      </div>
+  </div>
+</div>

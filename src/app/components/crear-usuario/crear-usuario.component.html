@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{titulo | uppercase}}</span>
+                    <form class="mt-3" [formGroup]="UsuarioForm" (ngSubmit)="agregarUsuario()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="nombre"
+                            class="form-control form-control-lg" placeholder="Nombre de usuario">
+                            <div class="text-danger"
+                            *ngIf="UsuarioForm.get('nombre')?.hasError('required') && UsuarioForm.get('nombre')?.touched">
+                                <span>El nombre es <strong>obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="email"
+                            class="form-control form-control-lg" placeholder="email">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="rol"
+                            class="form-control form-control-lg" placeholder="rol">
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">Volver</button>
+                            <button class="btn btn-success btn-lg float-end">Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

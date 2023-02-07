@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 tabla">
+            <div class="card-body text-center">
+                <div style="margin-top: 20px">
+                    <span style="font-size: 30px">Unidades</span>
+                    <button class="btn btn-success float-end" routerLink="">Atras</button>
+                    <button class="btn btn-success float-end" routerLink="/crearunidad">Nuevo</button>
+                </div>
+                <table *ngIf="listUnidades.length > 0"  class="table" style="margin-bottom: 15px; margin-top: 20px">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre Unidad</th>
+                        <th scope="col">Información</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let unidades of listUnidades">
+                        <th scope="row">1</th>
+                        <td>{{unidades.nombre}}</td>
+                        <td>{{unidades.informacion}}</td>
+                        <td>
+                          <button (click)="eliminarUnidad(unidades._id)"  class="btn btn-success float-end">Eliminar</button>
+                        </td>
+                        <td>
+                          <button [routerLink]="['/crearunidad', unidades._id]"
+                          class="btn btn-success float-end">Editar
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5 style="text-align: start; margin-top: 10px" *ngIf="listUnidades.length == 0">No existen unidades registradas :(</h5>
+            </div>
+        </div>
+    </div>
+</div>
